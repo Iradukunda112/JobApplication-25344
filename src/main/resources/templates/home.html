@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Job Board</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS -->
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Job Board</h1>
+    <div class="dynamic-message">
+        <p id="unique-message">Your career starts here!</p>
+    </div>
+    <p>Find your dream job or post your job opening today!</p>
+    <div class="buttons">
+        <a href="/register" class="btn">Register</a>
+        <a href="/login" class="btn">Login</a>
+    </div>
+</div>
+
+<script>
+    const messages = [
+        "Unlock your potential with us!",
+        "Explore thousands of job opportunities!",
+        "Join our community of successful professionals!",
+        "Your dream job is just a click away!",
+        "Empowering you to find the right job!"
+    ];
+
+    let index = 0;
+
+    function changeMessage() {
+        const messageElement = document.getElementById('unique-message');
+        messageElement.classList.remove('fade');
+        setTimeout(() => {
+            messageElement.innerText = messages[index];
+            messageElement.classList.add('fade');
+        }, 100); // Delay to allow the fade-out effect
+        index = (index + 1) % messages.length;
+    }
+
+    setInterval(changeMessage, 3000); // Change message every 3 seconds
+</script>
+</body>
+</html>
